@@ -20,6 +20,16 @@ const bubbleSort = (numbers: number[]): number[] => {
   return [...bubbleSort(swapped.slice(0, swapped.length - 1)), lastNumber]
 }
 
+const maximumSubarray = (numbers: number[], len: number): number => {
+  return 0
+}
+
+const objectEvenTotal = (obj: object): number => {
+  return 0
+}
+
 export {
-  bubbleSort
+  bubbleSort,
+  maximumSubarray,
+  objectEvenTotal
 }
