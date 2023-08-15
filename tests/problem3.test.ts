@@ -1,5 +1,5 @@
-import { describe, expect, test } from "@jest/globals";
-import { objectEvenTotal } from "..";
+import { describe, expect, test } from "@jest/globals"
+import { Solutions } from ".."
 
 describe('Problem 3', () => {
   test('Test Case 1', () => {
@@ -15,7 +15,7 @@ describe('Problem 3', () => {
       }
     }
 
-    const result = objectEvenTotal(obj)
+    const result = Solutions.objectEvenTotal(obj)
 
     expect(result).toEqual(6)
   })
@@ -29,7 +29,7 @@ describe('Problem 3', () => {
       e: {e: {e: 4}, ee: 'car'}
     }
 
-    const result = objectEvenTotal(obj)
+    const result = Solutions.objectEvenTotal(obj)
 
     expect(result).toEqual(12)
   })
