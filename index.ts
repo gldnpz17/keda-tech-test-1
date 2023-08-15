@@ -20,8 +20,21 @@ const bubbleSort = (numbers: number[]): number[] => {
   return [...bubbleSort(swapped.slice(0, swapped.length - 1)), lastNumber]
 }
 
+const splitSubarrays = (len: number) => (subarrays: number[][], _, index: number, numbers: number[]) => {
+  if (index + len > numbers.length) {
+    return subarrays
+  }
+
+  const subarray = numbers.slice(index, index + len)
+  return [...subarrays, subarray]
+}
+
+const sum = (numbers: number[]): number => numbers.reduce((total, current) => total + current, 0)
+
+const largest = (numbers: number[]): number => numbers.reduce((largest, current) => current > largest ? current : largest, Number.MIN_VALUE)
+
 const maximumSubarray = (numbers: number[], len: number): number => {
-  return 0
+  return largest(numbers.reduce(splitSubarrays(len), []).map(sum))
 }
 
 const objectEvenTotal = (obj: object): number => {
