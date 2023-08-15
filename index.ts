@@ -37,8 +37,25 @@ const maximumSubarray = (numbers: number[], len: number): number => {
   return largest(numbers.reduce(splitSubarrays(len), []).map(sum))
 }
 
+const isEven = (number: number): boolean => number % 2 == 0
+
+const getValuer = (obj: object) => (key: string) => {
+  const value = obj[key]
+
+  switch(typeof(value)) {
+    case "object":
+      return objectEvenTotal(value)
+    case "number":
+      return isEven(value) ? value : 0
+    default:
+      return 0
+  }
+}
+
 const objectEvenTotal = (obj: object): number => {
-  return 0
+  const getValue = getValuer(obj)
+
+  return sum(Object.keys(obj).map(getValue))
 }
 
 export {
